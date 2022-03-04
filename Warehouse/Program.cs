@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Warehouse.Core.Constants;
 using Warehouse.Data;
+using Warehouse.ModelBinders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +14,13 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    .AddMvcOptions(options => 
+    {
+        options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
+        options.ModelBinderProviders.Insert(1, new DateTimeModelBinderProvider(FormatingConstant.NormalDateFormat));
+        options.ModelBinderProviders.Insert(2, new DoubleModelBinderProvider());
+    });
 
 var app = builder.Build();
 
