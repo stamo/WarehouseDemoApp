@@ -8,10 +8,15 @@ namespace Warehouse.Infrastructure.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Contragent>()
+                .HasIndex(c => c.CustomerNumber)
+                .IsUnique();
+
             base.OnModelCreating(modelBuilder);
         }
 
