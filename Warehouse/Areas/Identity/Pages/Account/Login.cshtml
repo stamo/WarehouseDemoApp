@@ -31,7 +31,7 @@
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Sign in here</p>
-
+                
                 <form id="account" method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-floating">
@@ -44,6 +44,7 @@
                         <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
                         <span asp-validation-for="Input.Password" class="text-danger"></span>
                     </div>
+                    <div class="row">&nbsp;</div>
                     <div class="row">
                         <div class="col-8">
                             <div class="icheck-primary">
@@ -63,34 +64,34 @@
 
                 @*<div class="social-auth-links text-center mt-2 mb-3">
                     <a href="#" class="btn btn-block btn-primary">
-                        <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+                    <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
                     </a>
                     <a href="#" class="btn btn-block btn-danger">
-                        <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+                    <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
                     </a>
-                </div>*@
+                    </div>*@
                 <!-- /.social-auth-links -->
-                <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h3>Use another service to log in.</h3>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) != 0)
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>
-    </div>
+                <div class="col-md-12 col-md-offset-2">
+                    <section>
+                        <p>or use another service to log in</p>
+                        <hr />
+                        @{
+                            if ((Model.ExternalLogins?.Count ?? 0) != 0)
+                            {
+                                <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                                    <div>
+                                        <p>
+                                            @foreach (var provider in Model.ExternalLogins)
+                                            {
+                                                <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                            }
+                                        </p>
+                                    </div>
+                                </form>
+                            }
+                        }
+                    </section>
+                </div>
 
                 <p class="mb-1">
                     <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
