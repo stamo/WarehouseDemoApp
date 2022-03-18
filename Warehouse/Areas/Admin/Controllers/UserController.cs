@@ -61,6 +61,12 @@ namespace Warehouse.Areas.Admin.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Roles(UserRolesViewModel model)
+        {
+            return Ok(model);
+        }
+
         public async Task<IActionResult> Edit(string id)
         {
             var model = await service.GetUserForEdit(id);
