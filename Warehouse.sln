@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Warehouse.Core", "Warehouse
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Warehouse.Infrastructure", "Warehouse.Infrastructure\Warehouse.Infrastructure.csproj", "{0056C839-AF7C-413C-8B41-23B160C87BD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse.Api", "Warehouse.Api\Warehouse.Api.csproj", "{3D278BF1-CE7B-4117-88EE-962FB171B706}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Warehouse.Api", "Warehouse.Api\Warehouse.Api.csproj", "{3D278BF1-CE7B-4117-88EE-962FB171B706}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse.Test", "Warehouse.Test\Warehouse.Test.csproj", "{F556893E-549F-4B29-ACE8-3C5BFD9E980A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{3D278BF1-CE7B-4117-88EE-962FB171B706}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D278BF1-CE7B-4117-88EE-962FB171B706}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D278BF1-CE7B-4117-88EE-962FB171B706}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F556893E-549F-4B29-ACE8-3C5BFD9E980A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F556893E-549F-4B29-ACE8-3C5BFD9E980A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F556893E-549F-4B29-ACE8-3C5BFD9E980A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F556893E-549F-4B29-ACE8-3C5BFD9E980A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
