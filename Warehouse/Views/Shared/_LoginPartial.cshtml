@@ -1,9 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using Warehouse.Infrastructure.Data.Identity
-@inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
 
-@if (SignInManager.IsSignedIn(User))
+@if (User.Identity?.IsAuthenticated ?? false)
 {
     <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">

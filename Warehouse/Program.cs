@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Warehouse.Core.Constants;
 using Warehouse.Infrastructure.Data;
 using Warehouse.Infrastructure.Data.Identity;
@@ -15,12 +16,14 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
+
 builder.Services.AddAuthentication()
     .AddFacebook(options =>
     {
         options.AppId = builder.Configuration.GetValue<string>("Facebook:AppId");
         options.AppSecret = builder.Configuration.GetValue<string>("Facebook:AppSecret");
     });
+
 
 builder.Services.AddControllersWithViews()
     .AddMvcOptions(options => 

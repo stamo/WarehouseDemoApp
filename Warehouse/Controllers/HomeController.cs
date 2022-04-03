@@ -7,16 +7,15 @@ namespace Warehouse.Controllers
 {
     public class HomeController : BaseController
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<HomeController> logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> _logger)
         {
-            _logger = logger;
+            logger = _logger;
         }
 
         public IActionResult Index()
         {
-            ViewData[MessageConstant.SuccessMessage] = "Браво, успяхме да подкараме тостера!";
 
             return View();
         }
