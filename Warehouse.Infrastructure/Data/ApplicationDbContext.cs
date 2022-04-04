@@ -33,5 +33,7 @@ namespace Warehouse.Infrastructure.Data
         public DbSet<Deal> Deals { get; set; }
 
         public DbSet<DealSubject> DealSubjects { get; set; }
+
+        public DbSet<ApplicationFile> Files { get; set; }
     }
 }
