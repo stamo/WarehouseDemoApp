@@ -36,7 +36,6 @@ namespace Warehouse.Controllers
                 };
 
                 await cache.SetStringAsync("cachedTime", cachedData, cacheOptions);
-                await cache.SetAsync()
             }
 
             return View(nameof(Index), cachedData);
