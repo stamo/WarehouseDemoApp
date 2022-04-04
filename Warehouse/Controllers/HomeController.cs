@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
 using System.Diagnostics;
 using Warehouse.Core.Constants;
 using Warehouse.Models;
@@ -9,15 +10,36 @@ namespace Warehouse.Controllers
     {
         private readonly ILogger<HomeController> logger;
 
-        public HomeController(ILogger<HomeController> _logger)
+        private readonly IDistributedCache cache;
+
+        public HomeController(
+            ILogger<HomeController> _logger,
+            IDistributedCache _cache)
         {
             logger = _logger;
+            cache = _cache;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
 
-            return View();
+            DateTime dateTime = DateTime.Now;
+            var cachedData = await cache.GetStringAsync("cachedTime");
+
+            if (cachedData == null)
+            {
+                cachedData = dateTime.ToString();
+                DistributedCacheEntryOptions cacheOptions = new DistributedCacheEntryOptions()
+                {
+                    SlidingExpiration = TimeSpan.FromSeconds(20),
+                    AbsoluteExpiration = DateTime.Now.AddSeconds(60)
+                };
+
+                await cache.SetStringAsync("cachedTime", cachedData, cacheOptions);
+                await cache.SetAsync()
+            }
+
+            return View(nameof(Index), cachedData);
         }
 
         public IActionResult Privacy()

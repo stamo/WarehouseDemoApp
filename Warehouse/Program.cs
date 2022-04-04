@@ -33,6 +33,11 @@ builder.Services.AddControllersWithViews()
         options.ModelBinderProviders.Insert(2, new DoubleModelBinderProvider());
     });
 
+builder.Services.AddStackExchangeRedisCache(options => 
+{
+    options.Configuration = builder.Configuration.GetConnectionString("Redis");
+});
+
 builder.Services.AddApplicationServices();
 
 var app = builder.Build();
