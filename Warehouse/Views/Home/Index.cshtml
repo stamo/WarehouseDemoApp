@@ -1,10 +1,12 @@
-﻿@model string
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@model string
+@inject IViewLocalizer localizer
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = localizer["PageTitle"];
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Current time is: @Model</p>
+    <p>@localizer["lblCurrentTime"]: @Model</p>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>

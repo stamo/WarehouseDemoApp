@@ -1,5 +1,8 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using System.Globalization;
 using Warehouse.Core.Constants;
 using Warehouse.Infrastructure.Data;
 using Warehouse.Infrastructure.Data.Identity;
@@ -33,6 +36,19 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
     options.MinimumSameSitePolicy = SameSiteMode.None;
 });
 
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+builder.Services.Configure<RequestLocalizationOptions>(options => 
+{
+    var supportedLanguages = new CultureInfo[]
+    {
+        new CultureInfo("bg"),
+        new CultureInfo("en")
+    };
+
+    options.DefaultRequestCulture = new RequestCulture("bg");
+    options.SupportedCultures = supportedLanguages;
+    options.SupportedUICultures = supportedLanguages;
+});
 
 builder.Services.AddControllersWithViews()
     .AddMvcOptions(options => 
@@ -40,7 +56,8 @@ builder.Services.AddControllersWithViews()
         options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
         options.ModelBinderProviders.Insert(1, new DateTimeModelBinderProvider(FormatingConstant.NormalDateFormat));
         options.ModelBinderProviders.Insert(2, new DoubleModelBinderProvider());
-    });
+    })
+    .AddMvcLocalization(LanguageViewLocationExpanderFormat.Suffix);
 
 builder.Services.AddStackExchangeRedisCache(options => 
 {
@@ -68,6 +85,7 @@ app.UseStaticFiles();
 app.UseCookiePolicy();
 
 app.UseRouting();
+app.UseRequestLocalization();
 
 app.UseAuthentication();
 app.UseAuthorization();

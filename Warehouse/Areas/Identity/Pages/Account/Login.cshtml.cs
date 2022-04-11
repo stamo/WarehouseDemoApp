@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Warehouse.Infrastructure.Data.Identity;
+using Warehouse.Infrastructure.Resources;
 
 namespace Warehouse.Areas.Identity.Pages.Account
 {
@@ -65,7 +66,7 @@ namespace Warehouse.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required(ErrorMessage = "Полето {0} е задължително")]
+            [Required(ErrorMessageResourceName = "emRequired", ErrorMessageResourceType = typeof(Resource))]
             [EmailAddress]
             public string Email { get; set; }
 
