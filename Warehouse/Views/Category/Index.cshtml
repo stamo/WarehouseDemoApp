@@ -1,0 +1,23 @@
+﻿@using Warehouse.Core.Models
+@model CategoryListViewModel
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Label</th>
+    </tr>
+    @foreach (var item in Model.Categories)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Label</td>
+        </tr>
+    }
+</table>
+
+<paging 
+    page-no="@Model.PageNo" 
+    page-size="@Model.PageSize" 
+    total-records="@Model.TotalRecords"
+    page-size-dropdown-items="5-10-25">
+</paging>
