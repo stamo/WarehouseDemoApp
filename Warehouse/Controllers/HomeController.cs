@@ -111,5 +111,16 @@ namespace Warehouse.Controllers
 
             return LocalRedirect(returnUrl);
         }
+
+        public IActionResult GetData()
+        {
+            return Json(new 
+            { 
+                name = "Stamo", 
+                age = 44, 
+                gender = "male",  
+                nationality = "Bulgarian"
+            });
+        }
     }
 }
