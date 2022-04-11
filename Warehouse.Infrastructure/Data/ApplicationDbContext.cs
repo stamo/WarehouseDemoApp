@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Warehouse.Infrastructure.Data.Identity;
+using Warehouse.Infrastructure.InitialSeed;
 
 namespace Warehouse.Infrastructure.Data
 {
@@ -18,6 +19,8 @@ namespace Warehouse.Infrastructure.Data
             modelBuilder.Entity<Contragent>()
                 .HasIndex(c => c.CustomerNumber)
                 .IsUnique();
+
+            modelBuilder.ApplyConfiguration(new InitialDataConfiguration<Category>(@"InitialSeed/categories.json"));
 
             base.OnModelCreating(modelBuilder);
         }

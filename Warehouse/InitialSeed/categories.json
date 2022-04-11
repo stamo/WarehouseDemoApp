@@ -1,0 +1,52 @@
+[
+  {
+    "Id": "77963acf-7b33-435f-9bed-5f926ece5bc3",
+    "Label": "Food",
+    "DateFrom": "2022-04-01"
+  },
+  {
+    "Id": "0f1fa492-6a74-4b89-bde7-0f8d73d66277",
+    "Label": "Computers",
+    "DateFrom": "2022-04-01"
+  },
+  {
+    "Id": "afdca761-93c6-4472-b970-840bfdeb52e5",
+    "Label": "Books",
+    "DateFrom": "2022-04-01"
+  },
+  {
+    "Id": "37222c64-dd03-4660-a9c7-7e16da8c7dfe",
+    "Label": "Toys",
+    "DateFrom": "2022-04-01"
+  },
+  {
+    "Id": "a91908ba-0fd7-4426-ba29-96d07aafc329",
+    "Label": "Sporting clothes",
+    "DateFrom": "2022-04-01"
+  },
+  {
+    "Id": "270ac1e4-1071-4538-9385-1f5ba82909cd",
+    "Label": "Bikes",
+    "DateFrom": "2022-04-01"
+  },
+  {
+    "Id": "2ef69c5c-bf63-4641-aba4-06bc8d89f1dd",
+    "Label": "Mobile phones",
+    "DateFrom": "2022-04-01"
+  },
+  {
+    "Id": "cf1c9eb4-5d97-45ef-9c35-570ffc6eca61",
+    "Label": "Tablets",
+    "DateFrom": "2022-04-01"
+  },
+  {
+    "Id": "14153ce2-3e50-48a1-8c95-fd6910843ab0",
+    "Label": "Sunglasses",
+    "DateFrom": "2022-04-01"
+  },
+  {
+    "Id": "647b7946-2555-450d-876d-872aa2aadfe2",
+    "Label": "Monitors",
+    "DateFrom": "2022-04-01"
+  }
+]
